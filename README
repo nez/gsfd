@@ -1,15 +1,18 @@
-# todo
-
-FIXME: write description
-
 ## Usage
 
-esp:
+español:
 GSFD trabaja con un archivo de texto en donde anotas tus pendientes y dem√°s.
 Cada l√≠nea es un shit distinto que quieres llevar a cabo.
 Hay 3 "comandos" que puedes incluir en las lineas:   check (hecho)  1/2 (ya llevas una parte)  ** (comentario)
 Tienes que editar en /src/gsfd/core.clj,   *le-pipeline* tiene que apuntar al archivo de texto que vas a usar para llevar a cabo tu shit.
 Uso:  lein run   dentro del folder de gsfd te devuelve las 10 primeras lineas que no tengan check, ni **
+
+Tambien puedes hacer un alias tipo:
+alias gsfd="cd /nex/todo;lein run;cd -"
+
+para comodidad. Sólo cambia la ubicación donde tienes gsfd.
+
+
 
 *En Construccion :D*
 
