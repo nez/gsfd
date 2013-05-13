@@ -1,6 +1,6 @@
 (ns gsfd.core)
 
-(def *le-pipeline* "/Users/nex/Desktop/lepipeline.txt")
+(def *le-pipeline* "/Users/David/Desktop/lepipeline.txt")
 
 (def *le-watchfolder* "/f")
 
@@ -20,11 +20,10 @@
  
 ;tasks with lines so you can delete one.
 
+(defn print-all [coll] (loop [coll (remove nil? coll)] 
+                         (when (not (empty? coll)) (println (first coll))
+                                    (recur (rest coll)))))
 
-(defn print-all [coll] (loop [coll coll] 
-                         (when-not (nil? (first coll))
-                           (println (first coll))
-                           (recur (rest coll)))))
 
 ;testandebug
 (def res1 [#"TO-DO" #"to-do" #"TO-DO" #"TD" #"TODO:"])

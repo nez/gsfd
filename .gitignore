@@ -10,3 +10,6 @@ pom.xml
 *.ipr
 *.iws
 .DS_Store
+.lein-repl-history
+*~
+target/
