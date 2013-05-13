@@ -4,12 +4,11 @@
 
 (def *le-watchfolder* "/f")
 
-(defn take-wonils [n coll] (filter #(not (nil? %)) (take n coll)))
-
+(defn take-wonils [n coll] (remove nil? (take n coll)))
 
 (defn seq-filter [re coll] (filter #(re-seq re %) coll))
 
-(defn multisec [res] (fn [elem] (not (empty? (apply concat (map #(re-seq % elem) res))))))
+(defn multisec [res] (fn [elem] (seq (mapcat #(re-seq % elem) res))))
 
 (defn seq-filters [res coll] (filter #((multisec res) %) coll))
 
@@ -23,9 +22,9 @@
 
 
 (defn print-all [coll] (loop [coll coll] 
-                         (if (not (nil? (first coll))) 
-                           (do (println (first coll)) (recur (rest coll))))))
-
+                         (when-not (nil? (first coll))
+                           (println (first coll))
+                           (recur (rest coll)))))
 
 ;testandebug
-(def res1 [#"TO-DO" #"to-do" #"TO-DO" #"TD"])
+(def res1 [#"TO-DO" #"to-do" #"TO-DO" #"TD" #"TODO:"])
